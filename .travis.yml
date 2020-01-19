@@ -1,7 +1,39 @@
-# Config file for automatic testing at travis-ci.org
+## Config file for automatic testing at travis-ci.org
+#
+#language: python
+#dist: xenial
+#python:
+#  - 3.7
+#
+#stages:
+#  - test
+#  - name: answers
+#    if: branch = branch1
+#
+#jobs:
+#  include:
+#    - stage: test
+#      install:
+#        - pipenv install --dev --ignore-pipfile --deploy
+#      before_script: # code coverage tool
+#         - export GIT_BRANCH="${GITHUB_REF/refs\/heads\//}"
+#         - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+#         - chmod +x ./cc-test-reporter
+#         - ./cc-test-reporter before-build
+#      script:
+#        - pytest --cov-report xml:coverage.xml --cov=practice test_pset.py
+#      after_script:
+#        - ./cc-test-reporter after-build --debug --exit-code $TRAVIS_TEST_RESULT
+#    - stage: answers
+#      script:
+#        - python fibonacci.py
+#        - python pyramid.py
+
+# for codecoverage on codeclimate.com
+env:
+  global:
 
 language: python
-dist: xenial
 python:
   - 3.7
 
@@ -14,7 +46,7 @@ jobs:
   include:
     - stage: test
       install:
-        - pipenv install --dev --ignore-pipfile --deploy
+        - pipenv install --dev --deploy
       before_script: # code coverage tool
          - export GIT_BRANCH="${GITHUB_REF/refs\/heads\//}"
          - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
@@ -23,8 +55,4 @@ jobs:
       script:
         - pytest --cov-report xml:coverage.xml --cov=practice test_pset.py
       after_script:
-        - ./cc-test-reporter after-build --debug --exit-code $TRAVIS_TEST_RESULT
-    - stage: answers
-      script:
-        - python fibonacci.py
-        - python pyramid.py
+        - ./cc-test-reporter after-build --debug  #--exit-code $TRAVIS_TEST_RESULT
