@@ -9,7 +9,7 @@ stages:
   - test
   - name: answers
     if: branch = master
- 
+
 jobs:
   include:
     - stage: test
@@ -20,7 +20,7 @@ jobs:
          - chmod +x ./cc-test-reporter
          - ./cc-test-reporter before-build
       script:
-        - pytest --cov-report xml:coverage.xml term-missing --cov=practice test_pset.py
+        - pytest --cov-report xml:coverage.xml --cov=practice test_pset.py
       after_script:
         - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
     - stage: answers
