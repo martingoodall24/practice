@@ -9,7 +9,7 @@ stages:
   - test
   - name: answers
     if: branch = master
-
+ 
 jobs:
   include:
     - stage: test
