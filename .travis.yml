@@ -8,7 +8,7 @@ python:
 stages:
   - test
   - name: answers
-    if: branch = master
+    if: branch = branch1
 
 jobs:
   include:
