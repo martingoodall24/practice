@@ -2,7 +2,7 @@
 
 Replace these with your own build badges!
 
-[![Build Status](https://travis-ci.com/martingoodall24/practice.svg?branch=master)](https://travis-ci.com/martingoodall24/practice)
+[![Build Status](https://travis-ci.com/martingoodall24/practice.svg?branch=dev)](https://travis-ci.com/martingoodall24/practice)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/0b294913f9d2f278e27c/maintainability)](https://codeclimate.com/github/martingoodall24/practice/maintainability)
 
