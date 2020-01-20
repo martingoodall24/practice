@@ -20,16 +20,7 @@ def optimized_fibonacci(f):
     for i in range(2,f+1):
         out.append(out[i-1] + out[i-2])
     return out[f]
-    #raise NotImplementedError()
-
-def optimized_fibonacci(f):
-    out = []
-    out.append(0) 
-    out.append(1)
-    for i in range(2,f+1):
-        out.append(out[i-1] + out[i-2])
-    return out[f]
-    #raise NotImplementedError()    
+    #raise NotImplementedError() 
 
 class SummableSequence(object):
     def __init__(self, *initial):
