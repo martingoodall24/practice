@@ -4,9 +4,9 @@ Replace these with your own build badges!
 
 [![Build Status](https://travis-ci.com/martingoodall24/practice.svg?branch=master)](https://travis-ci.com/martingoodall24/practice)
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/aaaaa/maintainability)](https://codeclimate.com/repos/aaaaa/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/0b294913f9d2f278e27c/maintainability)](https://codeclimate.com/github/martingoodall24/practice/maintainability)
 
-[![Test Coverage](https://api.codeclimate.com/v1/badges/aaaaa/test_coverage)](https://codeclimate.com/repos/aaaaa/test_coverage)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/0b294913f9d2f278e27c/test_coverage)](https://codeclimate.com/github/martingoodall24/practice/test_coverage)
 
 ## Objectives
 

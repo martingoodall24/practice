@@ -53,6 +53,8 @@ jobs:
          - chmod +x ./cc-test-reporter
          - ./cc-test-reporter before-build
       script:
+        - python fibonacci.py
+        - python pyramid.py
         - pytest --cov-report xml:coverage.xml --cov=practice test_pset.py
       after_script:
         - ./cc-test-reporter after-build --debug  #--exit-code $TRAVIS_TEST_RESULT
