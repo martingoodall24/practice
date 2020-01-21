@@ -15,13 +15,10 @@ def print_pyramid(rows):
     """
     n = rows
     width = n + (n-1)
-    a = "="
     b = "-"
     z = ''
-    output =  [] 
     seq =  list(range(0,n*2,2))
     seq.sort(reverse=True)
-    j = 0
     for i in seq:
         q= z.center(width-i,"=")
         q2 = '{s:{c}^{n}}'.format(s=q,n=width,c=b)
