@@ -14,16 +14,16 @@ def print_pyramid(rows):
     :param int rows: total height
     """
     n = rows
-    width = n + (n-1)
+    width = n + (n - 1)
     b = "-"
-    z = ''
-    seq =  list(range(0,n*2,2))
+    z = ""
+    seq = list(range(0, n * 2, 2))
     seq.sort(reverse=True)
     for i in seq:
-        q= z.center(width-i,"=")
-        q2 = '{s:{c}^{n}}'.format(s=q,n=width,c=b)
+        q = z.center(width - i, "=")
+        q2 = "{s:{c}^{n}}".format(s=q, n=width, c=b)
         print(q2)
-    #raise NotImplementedError("Called with rows={}".format(rows))
+
 
 if __name__ == "__main__":
     parser = ArgumentParser(

@@ -5,7 +5,7 @@ from io import StringIO
 from time import sleep, time
 from unittest import TestCase, main
 
-from fibonacci import SummableSequence 
+from fibonacci import SummableSequence
 from fibonacci import last_8, optimized_fibonacci
 from pyramid import print_pyramid
 
@@ -51,7 +51,13 @@ def capture_print():
 
 
 class FibTests(TestCase):
+    """ Tests for fibonnacci use cases """
+
     def test_fibonnacci(self):
+        """ 
+        Compare the fibonacci results with expected   
+        """
+
         for n, expected in [
             # Check progressively more complex values, see if time out
             (0, 0),
@@ -68,38 +74,58 @@ class FibTests(TestCase):
                 self.assertEqual(optimized_fibonacci(n), expected)
 
     def test_summable_2init(self):
-       ss = SummableSequence(0, 1)
-       for n in range(0, 50, 5):
-           with timeout(message="Timeout running f({})".format(n)):
+        """ Tests for 2 initializers """
+        ss = SummableSequence(0, 1)
+        for n in range(0, 50, 5):
+            with timeout(message="Timeout running f({})".format(n)):
                 last_8(ss(n))
                 with self.assertRaises(TimeoutError):
                     with timeout():
                         sleep(2)
 
     def test_summable_3inits(self):
+        """ Tests for 3 initializers """
         new_seq = SummableSequence(5, 7, 11)
         for n in range(0, 100, 10):
-           with timeout(message="Timeout running f({})".format(n)):
+            with timeout(message="Timeout running f({})".format(n)):
                 last_8(new_seq(n))
                 with self.assertRaises(TimeoutError):
                     with timeout():
                         sleep(2)
 
+
 class TestTimeout(TestCase):
+    """ Make sure it doesn't run too long """
+
     def test_timeout(self):
+        """ raise error if it times out """
         with self.assertRaises(TimeoutError):
             with timeout():
                 sleep(2)
 
 
 class MiscTests(TestCase):
+    """ Various tests that don't have their own category """
+
     def test_8(self):
+        """ Make sure results of last_8() are as expected """
+
         self.assertEqual(123, last_8(123))
         self.assertEqual(last_8(123456789), 23456789)
 
 
 class PyramidTests(TestCase):
+    """ Test the pyramid code """
+
     def _assert_expected(self, rows, expected):
+        """ 
+        Confirm results are as expected for the pyramid code
+    
+        Parameters: 
+        rows (int): number of rows to generate in pyramid.
+        expected: the results to compare to. 
+        """
+
         with capture_print() as std:
             print_pyramid(rows)
 
@@ -109,9 +135,11 @@ class PyramidTests(TestCase):
         self.assertEqual(captured, expected)
 
     def test_pyramid_one(self):
+        """ test pyramid with 1 row """
         self._assert_expected(1, "=\n")
 
     def test_pyramid_two(self):
+        """ test pyramid with 2 rows """
         self._assert_expected(2, "-=-\n" + "===\n")
 
 

@@ -1,38 +1,69 @@
 #!/usr/bin/env python3
 
+
 def last_8(some_int):
     """Return the last 8 digits of an int
-    :param int some_int: the number
-    :rtype: int
+
+    Parameters:
+    some_int (int): the number in the sequence
+    
+    Returns:
+    int: the last 8 digits of the seq value
     """
     last_8_digits = some_int % 100000000
     return last_8_digits
-    #raise NotImplementedError()
+
 
 def optimized_fibonacci(f):
+    """ 
+    Creates fibonacci sequence based on 
+    specific initializers  
+  
+    Parameters: 
+    f (int): position in fibonacci sequence
+  
+    Returns: 
+    int: the value in the fibonacci sequence
+    
+    """
     out = []
-    out.append(0) 
+    out.append(0)
     out.append(1)
-    for i in range(2,f+1):
-        out.append(out[i-1] + out[i-2])
+    for i in range(2, f + 1):
+        out.append(out[i - 1] + out[i - 2])
     return out[f]
-    #raise NotImplementedError() 
+
 
 class SummableSequence(object):
     def __init__(self, *initial):
+        """ 
+        The constructor for SummableSequence class. 
+  
+        Parameters: 
+           initial (list): The list of initializer values.    
+        """
         self.initial = initial
         self.n = len(initial)
 
     def __call__(self, i):
-        out = [] 
+        """ 
+        Creates the fibonacci list 
+  
+        Parameters: 
+           i (int): The final position in list of interest    
+        """
+        out = []  # list to store sequence
         n = self.n
+        j = 0  # counter
+        # set the initials
         for each in self.initial:
             out.append(each)
-        j = 0
-        for j in range(0,i-n):
-            a = sum(out[j:n+j+1])
+        # sum the previous n values
+        for j in range(0, i - n):
+            a = sum(out[j : n + j + 1])
             out.append(a)
-        return(out[i-1])
+        return out[i - 1]
+
 
 if __name__ == "__main__":
 
