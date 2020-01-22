@@ -1,5 +1,13 @@
 #!/usr/bin/env python3
 
+"""
+Create a generalized class to create a fibonnaci
+sequence based on a given number of input variables
+and return the last 8 digits of the result. Do this 
+in an efficient manner.
+
+"""
+
 
 def last_8(some_int):
     """Return the last 8 digits of an int

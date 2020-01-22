@@ -1,3 +1,18 @@
+#!/usr/bin/env python3
+
+"""
+Main test code for Problem Set 0 for CSCI-E-29
+
+Test the fibonnaci and pyramid code 
+
+Classes: 
+    - Fibonnaci tests - FibTests
+    - Pyramid tests - PyramidTests
+    - Time out tests - TestTimeout
+    - Miscellaneous tests - MiscTests
+
+"""
+
 import signal
 import sys
 from contextlib import contextmanager
@@ -11,12 +26,12 @@ from pyramid import print_pyramid
 
 try:
     # Absent on Windows, trigger AttributeError
-    signal.alarm
 
     def _timeout(signum, frame):
         raise TimeoutError()
 
     signal.signal(signal.SIGALRM, _timeout)
+    signal.alarm
 
     @contextmanager
     def timeout(seconds=1, message="Timeout!"):
@@ -34,14 +49,16 @@ except AttributeError:
 
     @contextmanager
     def timeout(seconds=1, message="Timeout!"):
-        t0 = time()
+        """ Print timeout error message """
+        t_0 = time()
         yield
-        if time() - t0 > seconds:
+        if time() - t_0 > seconds:
             raise TimeoutError(message)
 
 
 @contextmanager
 def capture_print():
+    """ Get printout """
     _stdout = sys.stdout
     sys.stdout = StringIO()
     try:
