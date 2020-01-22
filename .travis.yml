@@ -25,6 +25,5 @@ jobs:
         - python fibonacci.py
         - python pyramid.py
         - pytest --cov-report xml:coverage.xml --cov=practice test_pset.py
-        - codeclimate analyze -f html > codeclimate.html
       after_script:
         - ./cc-test-reporter after-build --debug  #--exit-code $TRAVIS_TEST_RESULT
