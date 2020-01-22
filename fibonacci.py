@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-
 def last_8(some_int):
     """Return the last 8 digits of an int
     :param int some_int: the number
@@ -9,9 +8,6 @@ def last_8(some_int):
     last_8_digits = some_int % 100000000
     return last_8_digits
     #raise NotImplementedError()
-    
-def remove_me():
-    print("remove_me3")
 
 def optimized_fibonacci(f):
     out = []
