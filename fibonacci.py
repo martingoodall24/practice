@@ -3,7 +3,7 @@
 """
 Create a generalized class to create a fibonnaci
 sequence based on a given number of input variables
-and return the last 8 digits of the result. Do this 
+and return the last 8 digits of the result. Do this
 in an efficient manner.
 
 """
@@ -14,7 +14,7 @@ def last_8(some_int):
 
     Parameters:
     some_int (int): the number in the sequence
-    
+
     Returns:
     int: the last 8 digits of the seq value
     """
@@ -23,16 +23,16 @@ def last_8(some_int):
 
 
 def optimized_fibonacci(f):
-    """ 
-    Creates fibonacci sequence based on 
-    specific initializers  
-  
-    Parameters: 
+    """
+    Creates fibonacci sequence based on
+    specific initializers
+
+    Parameters:
     f (int): position in fibonacci sequence
-  
-    Returns: 
+
+    Returns:
     int: the value in the fibonacci sequence
-    
+
     """
     out = []
     out.append(0)
@@ -44,21 +44,21 @@ def optimized_fibonacci(f):
 
 class SummableSequence(object):
     def __init__(self, *initial):
-        """ 
-        The constructor for SummableSequence class. 
-  
-        Parameters: 
-           initial (list): The list of initializer values.    
+        """
+        The constructor for SummableSequence class.
+
+        Parameters:
+           initial (list): The list of initializer values.
         """
         self.initial = initial
         self.n = len(initial)
 
     def __call__(self, i):
-        """ 
-        Creates the fibonacci list 
-  
-        Parameters: 
-           i (int): The final position in list of interest    
+        """
+        Creates the fibonacci list
+
+        Parameters:
+           i (int): The final position in list of interest
         """
         out = []  # list to store sequence
         n = self.n

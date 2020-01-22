@@ -3,9 +3,9 @@
 """
 Main test code for Problem Set 0 for CSCI-E-29
 
-Test the fibonnaci and pyramid code 
+Test the fibonnaci and pyramid code
 
-Classes: 
+Classes:
     - Fibonnaci tests - FibTests
     - Pyramid tests - PyramidTests
     - Time out tests - TestTimeout
@@ -35,6 +35,7 @@ try:
 
     @contextmanager
     def timeout(seconds=1, message="Timeout!"):
+        """ Issue the actual timeout with message """
         # NB: doesn't work on windows
         signal.alarm(seconds)
         try:
@@ -71,8 +72,8 @@ class FibTests(TestCase):
     """ Tests for fibonnacci use cases """
 
     def test_fibonnacci(self):
-        """ 
-        Compare the fibonacci results with expected   
+        """
+        Compare the fibonacci results with expected
         """
 
         for n, expected in [
@@ -135,12 +136,12 @@ class PyramidTests(TestCase):
     """ Test the pyramid code """
 
     def _assert_expected(self, rows, expected):
-        """ 
+        """
         Confirm results are as expected for the pyramid code
-    
-        Parameters: 
+
+        Parameters:
         rows (int): number of rows to generate in pyramid.
-        expected: the results to compare to. 
+        expected: the results to compare to.
         """
 
         with capture_print() as std:
