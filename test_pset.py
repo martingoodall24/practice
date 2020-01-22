@@ -67,25 +67,23 @@ class FibTests(TestCase):
             with timeout(message="Timeout running f({})".format(n)):
                 self.assertEqual(optimized_fibonacci(n), expected)
 
-    def test_summable(self):
-       initializers = ([0,1], [5,7,11])])
-       for each in initializers:
-            ss = SummableSequence(each)
-            for n in range(0, 50, 5):
-                with timeout(message="Timeout running f({})".format(n)):
-                        print(last_8(ss(n)))
-                        with self.assertRaises(TimeoutError):
-                            with timeout():
-                                sleep(2)
+    def test_summable_2init(self):
+       ss = SummableSequence(0, 1)
+       for n in range(0, 50, 5):
+           with timeout(message="Timeout running f({})".format(n)):
+                last_8(ss(n))
+                with self.assertRaises(TimeoutError):
+                    with timeout():
+                        sleep(2)
 
-    # def test_summable2(self):
-    #     new_seq = SummableSequence(5, 7, 11)
-    #     for n in range(0, 50, 5):
-    #        with timeout(message="Timeout running f({})".format(n)):
-    #             last_8(new_seq(n))
-    #             with self.assertRaises(TimeoutError):
-    #                 with timeout():
-    #                     sleep(2)
+    def test_summable_3inits(self):
+        new_seq = SummableSequence(5, 7, 11)
+        for n in range(0, 100, 10):
+           with timeout(message="Timeout running f({})".format(n)):
+                last_8(new_seq(n))
+                with self.assertRaises(TimeoutError):
+                    with timeout():
+                        sleep(2)
 
 class TestTimeout(TestCase):
     def test_timeout(self):
