@@ -43,6 +43,8 @@ def optimized_fibonacci(f):
 
 
 class SummableSequence(object):
+    """ Class to generically calculate fibonacci sequence """
+
     def __init__(self, *initial):
         """
         The constructor for SummableSequence class.
