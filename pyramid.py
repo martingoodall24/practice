@@ -21,8 +21,8 @@ def print_pyramid(rows):
     seq.sort(reverse=True)
     for i in seq:
         q = z.center(width - i, "=")
-        q2 = "{s:{c}^{n}}".format(s=q, n=width, c=b)
-        print(q2)
+        q_2 = "{s:{c}^{n}}".format(s=q, n=width, c=b)
+        print(q_2)
 
 
 if __name__ == "__main__":
