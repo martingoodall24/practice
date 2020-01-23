@@ -42,7 +42,7 @@ def optimized_fibonacci(f):
     return out[f]
 
 
-class SummableSequence(object):
+class SummableSequence:
     """ Class to generically calculate fibonacci sequence """
 
     def __init__(self, *initial):
