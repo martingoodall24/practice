@@ -93,20 +93,12 @@ class FibTests(TestCase):
 
     def test_summable_2init(self):
         """ Tests for 2 initializers """
-        ss = SummableSequence(0, 1)
+        ss_2 = SummableSequence(0, 1)
+        ss_3 = SummableSequence(5, 7, 11)
         for n in range(0, 50, 5):
             with timeout(message="Timeout running f({})".format(n)):
-                last_8(ss(n))
-                with self.assertRaises(TimeoutError):
-                    with timeout():
-                        sleep(2)
-
-    def test_summable_3inits(self):
-        """ Tests for 3 initializers """
-        new_seq = SummableSequence(5, 7, 11)
-        for n in range(0, 100, 10):
-            with timeout(message="Timeout running f({})".format(n)):
-                last_8(new_seq(n))
+                last_8(ss_2(n))
+                last_8(ss_3(n))
                 with self.assertRaises(TimeoutError):
                     with timeout():
                         sleep(2)
