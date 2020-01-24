@@ -27,11 +27,12 @@ from pyramid import print_pyramid
 try:
     # Absent on Windows, trigger AttributeError
 
+    signal.alarm
+
     def _timeout(signum, frame):
         raise TimeoutError()
 
     signal.signal(signal.SIGALRM, _timeout)
-    signal.alarm
 
     @contextmanager
     def timeout(seconds=1, message="Timeout!"):
