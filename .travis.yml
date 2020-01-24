@@ -9,7 +9,7 @@ python:
 stages:
   - test
   - name: answers
-    if: branch = branch1
+    if: branch = dev
 
 jobs:
   include:
