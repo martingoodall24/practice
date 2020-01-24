@@ -3,6 +3,6 @@ plugins:
   radon:
     enabled: true
   pylint:
-    enabled: true
-  credo:
+    enabled: false
+  black:
     enabled: true
