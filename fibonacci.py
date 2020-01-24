@@ -75,9 +75,13 @@ class SummableSequence:
         return out[i - 1]
 
 
-if __name__ == "__main__":
-
+def test_main():
     print("f(100000)[-8:]", last_8(optimized_fibonacci(100000)))
 
     new_seq = SummableSequence(5, 7, 11)
     print("new_seq(100000)[-8:]:", last_8(new_seq(100000)))
+
+
+if __name__ == "__main__":
+
+    test_main()
