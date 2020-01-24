@@ -53,9 +53,13 @@ except AttributeError:
     def timeout(seconds=1, message="Timeout!"):
         """ Print timeout error message """
         t_0 = time()
-        yield
-        if time() - t_0 > seconds:
-            raise TimeoutError(message)
+        try:
+            yield
+        except TimeoutError:
+            if time() - t_0 > seconds:
+                raise TimeoutError(message)
+        finally:
+            signal.alarm(0)
 
 
 @contextmanager
