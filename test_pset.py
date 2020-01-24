@@ -106,11 +106,10 @@ class FibTests(TestCase):
 
     def test_fib_main(self):
         """ Testing main routine from fib """
-        with timeout(message="Timeout running f({})".format(n)):
-            test_main()
-            with self.assertRaises(TimeoutError):
-                with timeout():
-                    sleep(2)
+        test_main()
+        with self.assertRaises(TimeoutError):
+            with timeout():
+                sleep(2)
 
 
 class TestTimeout(TestCase):
