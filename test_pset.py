@@ -21,7 +21,7 @@ from time import sleep, time
 from unittest import TestCase, main
 
 from fibonacci import SummableSequence
-from fibonacci import last_8, optimized_fibonacci
+from fibonacci import last_8, optimized_fibonacci, test_main
 from pyramid import print_pyramid
 
 try:
@@ -103,6 +103,14 @@ class FibTests(TestCase):
                 with self.assertRaises(TimeoutError):
                     with timeout():
                         sleep(2)
+
+    def test_fib_main(self):
+        """ Testing main routine from fib """
+        with timeout(message="Timeout running f({})".format(n)):
+            test_main()
+            with self.assertRaises(TimeoutError):
+                with timeout():
+                    sleep(2)
 
 
 class TestTimeout(TestCase):
